@@ -33,6 +33,6 @@ app.get('/minus', (request, response) => {
 });
 
 app.listen(3000, () => {
-  console.log('App listening at http://127.0.0.1:3000');
-  console.log('App listening at http://localhost:3000');
+    console.log('App listening at http://127.0.0.1:3000');
+    console.log('App listening at http://localhost:3000');
 });
