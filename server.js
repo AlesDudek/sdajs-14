@@ -1,13 +1,17 @@
 import express from 'express';
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static('public/'));
 // =>
 // app.get('/index.html', ...)
 // app.get('/app.js', ...)
 
-app.get('/hi', (request, response) => {
-    response.send('Hi, World!');
+app.get('/hi', function respondHi(request, response) {
+    response.send('<html><body><div style="background:blue">Hi, World!</div></body></html>');
+});
+
+app.post('/hi', function respondHi(request, response) {
+    response.send('<html><body><div style="background:blue">Hi, World!</div></body></html>');
 });
 
 let counter = 0;
