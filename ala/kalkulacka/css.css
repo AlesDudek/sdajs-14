@@ -17,3 +17,46 @@
     padding: 18px;
     box-shadow: 4px 4px 4px #4f4f4f;
 }
+
+/* rozmístění tlačítek*/
+.buttons{
+    display: grid;
+    grid-gap: 7px; /* mezera mezi tlačítkama*/
+    justify-items: center;
+    grid-template-areas: "ac plus-minus division"; 
+    grid-template-areas: "seven eigth nine multi";
+    grid-template-areas: "four five siz minus";
+    grid-template-areas: "one two three plus";
+    grid-template-areas: "zero zero dot equal";
+
+}
+/* nstavení tlačítek*/
+.btn{
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* prusvitnost tlačítek*/
+.btn:hover{
+    filter: brightness(120%);
+}
+
+.btn:hover{
+    filter: brightness(90%);
+}
+
+.btn.bg-grey{
+    background: var(--grey);
+}
+
+.btn.bg-orange{
+    background: var(--orange);
+}
+
