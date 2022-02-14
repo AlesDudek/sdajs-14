@@ -18,6 +18,21 @@
     box-shadow: 4px 4px 4px #4f4f4f;
 }
 
+.calc-screen{
+    height: 125px;
+    padding: 10px;
+    display: grid;
+    justify-items: end;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.calc-screen p{
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+}
+
 /* rozmístění tlačítek*/
 .buttons{
     display: grid;
@@ -42,6 +57,14 @@
     cursor: pointer;
     user-select: none;
 }
+
+/* zvětšení nuli přes dvě tlačítka
+.btn.zero{
+    grid-area:zero;
+    width:100%;
+    border-radius:34px;
+}
+*/
 
 /* prusvitnost tlačítek*/
 .btn:hover{
