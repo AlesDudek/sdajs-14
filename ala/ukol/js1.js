@@ -82,3 +82,82 @@ console.log(dvere.popis)
 // 11.4. Pridejte getter popis(), který popiše dveře, jejich barvu a stav
 
 
+/*
+Opakovací úkoly 3 -
+v skriptu napojeném na HTML dokument:
+Vytvořte proměnnou counter a tlačítko s nápisem "+1" a ID counterAdd
+
+Napojte tlačítko tak, že se po jeho stisknutí zvětší proměnná counter o 1.
+
+Přidejte div s ID counterText. Po stisknutí tlačítka 
+a zvětšení proměnné counter vypište její hodnotu jako text do tohoto divu
+*/
+/*
+let counter = 1
+
+const btn = document.querySelector("#counterAdd");
+const div = document.querySelector("#counterText")
+//div.appendChild(btn)
+
+btn.addEventListener("click", function(event) {
+    counter += 1;
+    div.textContent = counter
+    console.log(counter)
+});
+*/
+
+// 14. Object/dict + funkce
+// 14.1. Vytvoř objekt databazeUzivatelu
+//       { 1: { name: "Eva", surname: "Nová" }, 2: { name: "Jirka", surname: "Nový" } }
+// 14.2. Vytvoř funkci najdiNejvetsiIdUzivatele()
+// 14.3. Vytvoř funkci vytvorUzivatele(jmeno, prijmeni) (adresa = objekt),
+//       která přidá záznam do databazeUzivatelu s ID o jedna větším než najdiNejvetsiIdUzivatele()
+// 14.4. Vytvoř funkci odstranUzivatele(id), která z databazeUzivatelu odstrani tohoto uzivatele
+
+
+const databazeUzivatelu = {
+    1: {name: "Helena", surname: "Halušková"},
+    2: {name: "Lukáš", surname: "Kulička"}
+};
+
+/*
+najdiNejvetsiIdUzivatele = Object.values(databazeUzivatelu).map(x => x.name + " " + x.surname)
+console.log(najdiNejvetsiIdUzivatele)
+
+najdiNejvetsiIdUzivatele2 = []
+uzivatel = Object.values(databazeUzivatelu).forEach( x => {
+    najdiNejvetsiIdUzivatele2.push(x => x.name + " " + x.surname)
+});
+console.log(najdiNejvetsiIdUzivatele2)
+*/
+
+function najdiNejvetsiIdUzivatele(objekty) {
+    let maximum = Number.MIN_VALUE
+    const kluce = Object.keys(objekty)
+    kluce.forEach(obj => {
+        if (obj > maximum) {
+            maximum = obj
+        }
+    });
+        return maximum
+}
+const vysledok = najdiNejvetsiIdUzivatele(databazeUzivatelu);
+console.log(vysledok);
+
+function pridatUzivatele(name, surname){
+    let uzivatel = {name: name, surname: surname}
+    let hledat = najdiNejvetsiIdUzivatele(databazeUzivatelu)
+    databazeUzivatelu[parseInt(hledat, 10) +1] = uzivatel
+}
+console.log(pridatUzivatele("Trouba", "Učitse"))
+console.log(databazeUzivatelu)
+
+function odstranUzivateleId(id){
+    delete databazeUzivatelu[id]
+}
+
+odstranUzivateleId(2)
+console.log(databazeUzivatelu)
+
+
+
